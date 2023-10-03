@@ -1,0 +1,141 @@
+#map {
+    height: 80vh;
+    width: 100hw;
+}
+
+h1{
+    color:rgb(148, 9, 9);
+    font-family: Verdana;
+    text-align: center;
+}
+
+select{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+#modalMapa{
+    display: none;
+    position: fixed;
+    padding:1.5em;
+    z-Index: 999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    padding:2em;
+    max-height:80vh;
+    overflow: auto;
+    background-color: white;
+    color:#009aae;
+    filter: drop-shadow(4px 4px 10px lightgray);
+    border-radius: 8px;
+    overflow: auto;
+}
+
+#modalMapa > div{
+    max-height: 40em;
+    overflow: auto;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+#modalMapa > table {
+    width:fit-content; 
+    margin:0 auto;
+    padding:1em;
+}
+#modalMapa > table > tr > th{
+    background-color:#009aae;
+    color:white;
+    font-weight:bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align:left;
+    width:fit-content;
+    padding:0.5em;
+}
+#modalMapa > table > tr > td{
+    background-color:white;
+    color:#009aae;
+    font-weight:bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align:center;
+    min-width:20em;
+    padding:0.5em;
+}
+#modalMapa >table >tr{
+    border-top: 1px solid rgba(170,170,170,0.6);
+}
+#menuTrigger{
+    background: white;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px;
+    padding:0.5em;
+    color:#009aae;
+    text-align:center;
+    font-weight:bold;
+    position:fixed;
+    top:40%;
+    left:0;
+    z-index:999;
+    cursor:pointer;
+    
+}
+#menuClose{
+    position:absolute;
+    top:0;
+    right:1em;
+    padding:1em;
+    cursor:pointer;
+}
+
+#sideMenu{
+    position: fixed;
+    top: 25%;
+    left: -80%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 50%;
+    height: fit-content;
+    max-height: 40%;
+    background-color: white;
+    color: #009aae;
+    font-weight: bold;
+    transition: left 0.5s ease-in-out;
+    z-index: 1000;
+    padding:1em;
+    filter: drop-shadow(2px 2px 10px lightgray);
+    overflow:hidden;
+}
+.sideMenu-content{
+    margin-top:1.5em;
+    display: flex;
+    flex-direction:column;
+    row-gap:0.5em;
+    align-items:center;
+}
