@@ -10,7 +10,9 @@
     <link rel="stylesheet" type="text/css" href="css/mapa.css">
     <link rel="stylesheet" type="text/css" href="Leaflet-MiniMap-master/dist/Control.MiniMap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <title>Elecciones PASO 2023</title>
+    <title>Elecciones 2023</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 
 </head>
 <body>
@@ -110,8 +112,10 @@
     <div id="map"></div>
 
         <div id="modalMapaNew" class="modal" tabindex="-1">
+        
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
+               
 
                 </div>
             </div>
@@ -135,6 +139,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" 
         integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" 
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        
 
     <footer class="footer">
       <div class="container" align="center">

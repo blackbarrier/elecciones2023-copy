@@ -1,3 +1,5 @@
+
+
 // set posicion inicial del mapa
 const EXTRANJERO ="EXTRANJEROS";
 const NACIONAL ="NACIONALES";
@@ -121,6 +123,7 @@ function onEachFeature(feature, layer) {
 function modalNew(feature) {
     cargarContenidoNew(feature);
     $('#modalMapaNew').modal('show');
+
     //modalMapaNew.show();
 }
 
@@ -131,7 +134,7 @@ function cargarContenidoNew(feature) {
     let seccionElectoral = feature.properties.seccion;
     nombre = nombre.toUpperCase();    
 
-    let url = "/elecciones2023/lib/tablaIndex.php";
+    let url = "/elecciones2023_copy/lib/tablaIndex.php";
     //let url = "/test_pasos_2023/lib/tablaIndex.php";
     var data = { 
         seccion_id: seccionElectoral,
@@ -154,6 +157,8 @@ function cargarContenidoNew(feature) {
         //console.log("Success:", response.text());
         document.querySelector('.modal-content').innerHTML = response;
     });
+
+    
 
 }
 
@@ -198,5 +203,7 @@ info.update = function (props) {
 };
 
 info.addTo(map);
+
+
 
 

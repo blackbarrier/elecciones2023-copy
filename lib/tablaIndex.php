@@ -231,6 +231,8 @@ catch (Exception $e) {
 ?>
 
 
+
+
 <div class="modal-header" style="background-color: #009aae">
     <h2 class="modal-title text-white">
     <?php echo   "Partido: ". $nombreHeader. " - Sección Electoral : ".$idConsulta; ?>
@@ -239,145 +241,211 @@ catch (Exception $e) {
     <span aria-hidden="true">&times;</span>
 </button>-->
 </div>
+
+
 <div class="modal-body">
-<h3 style="color: #009aae">Datos por Sección Electoral</h3>
-<table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
+    <br> 
+    
+    <div class="accordion" id="accordionExample">
 
-    <tr>
-        <td>&nbsp;</td>
-        <td align="center"><b style="color:#009aae;">Nacionales</b></td>
-        <td align="center"><b style="color:#009aae;">Extranjeros</b></td>
-        <td align="center"><b style="color:#009aae;">Total</b></td>
-  
-    </tr>
-    <tr>
-        <td><b style="color:#009aae;"><i class="fa-sharp fa-school-flag"></i>&nbsp;Establecimientos</b></td>
-        <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
-        <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-        <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
-       
-    </tr>
-   
-    <tr>
-        <td><b style="color:#009aae;"><i class="fa-solid fa-boxes-packing"></i>&nbsp;Mesas</b></td>
-        <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
-        <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
-        <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
-  
-    </tr>
-     <tr>
-        <td><b style="color:#009aae;"><i class="fa-solid fa-person"></i>&nbsp;Electores</b></td>
-        <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
-        <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-        <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
-   
-    </tr>
+        <!--  Modulo 1   -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Datos por partido: <?php echo $nombreHeader; ?>
+            </button>
+            </h2>
+                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <h3 style="color: #009aae">Datos por Agrupacion</h3>
 
-</table>
-<br>
-<h3 style="color: #009aae">Datos Unidades Carcelarias</h3>
-<table bgcolor="#FFFFFF" border="3"style="width: 100%"   bordercolor="#009aae" cellpadding="5" cellspacing="0">
-
-    <tr>
-        <td>&nbsp;</td>
-        <td align="center"><b style="color:#009aae;">Mesas</b></td>
-        <td align="center"><b style="color:#009aae;">Electores</b></td>
-      
-    </tr>
-    <tr>
-        <td><b style="color:#009aae;"><i class="fa-solid fa-handcuffs"></i>&nbsp;Unidades Carcelarias</b></td>
-        <td align="center"><?php echo  $presos['cantidad_mesas']; ?></td>
-        <td align="center"><?php echo $presos['cantidad_electores']; ?></td>
-         
-    </tr>
-  
-
-</table>
+                            <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
+                            <tr>   
+                                <td>&nbsp;</td>
+                                <td align="center"><b style="color:#009aae;">Nacionales</b></td>
+                                <td align="center"><b style="color:#009aae;">Extranjeros</b></td>
+                                <td align="center"><b style="color:#009aae;">Total</b></td>                
+                                <td align="center"><b style="color:#009aae;">Blanco</b></td>                
+                            </tr>
 
 
-<br>
-<h3 style="color: #009aae">Datos por Partido</h3>
-<table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
+                            <tr>
+                                <td><b style="color:#009aae;">&nbsp;Primer candidato</b></td>
+                                <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
+                                <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
+                                <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                            
+                            </tr>
+                        
+                            <tr>
+                                <td><b style="color:#009aae;">&nbsp;Segundo candidato</b></td>
+                                <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
+                                <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
+                                <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
+                        
+                            </tr>
+                            <tr>
+                                <td><b style="color:#009aae;">&nbsp;Tercer candidato</b></td>
+                                <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
+                                <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
+                                <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                        
+                            </tr>
+                            <tr>
+                                <td><b style="color:#009aae;">&nbsp;Cuarto candidato</b></td>
+                                <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
+                                <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
+                                <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                        
+                            </tr>
+                           
+                           
+                           
+                        </table>
+                        <br>
+                        <br>
+                        <img src="img\grafico.png" alt="">
 
-    <tr>
-        <td>&nbsp;</td>
-        <td align="center"><b style="color:#009aae;">Nacionales</b></td>
-        <td align="center"><b style="color:#009aae;">Extranjeros</b></td>
-        <td align="center"><b style="color:#009aae;">Total </b></td>
- 
-    </tr>
-    <tr>
-        <td><b style="color:#009aae;"><i class="fa-sharp fa-school-flag"></i>&nbsp;Establecimientos</b></td>
-        <td align="center"><?php echo number_format($array_establecimientos_por_partido['NACIONALES'], 0, '.', '.');  ?></td>
-        <td align="center"><?php echo number_format($array_establecimientos_por_partido['EXTRANJEROS'], 0, '.', '.');  ?></td>
-        <td align="center"><?php echo number_format($array_establecimientos_por_partido['TOTAL'], 0, '.', '.');  ?></td>
-        
-    </tr>
-   
-    <tr>
-        <td><b style="color:#009aae;"><i class="fa-solid fa-boxes-packing"></i>&nbsp;Mesas</b></td>
-        <td align="center"><?php echo number_format($array_mesas_por_partido['NACIONALES'], 0, '.', '.'); ?></td>
-        <td align="center"><?php echo number_format($array_mesas_por_partido['EXTRANJEROS'], 0, '.', '.');  ?></td>
-        <td align="center"><?php echo number_format($array_mesas_por_partido['TOTAL'], 0, '.', '.'); ?></td>
-        
-    </tr>
-     <tr>
-        <td><b style="color:#009aae;"><i class="fa-solid fa-person"></i>&nbsp;Electores</b></td>
-        <td align="center"><?php echo number_format($array_electores_por_partido['NACIONALES'], 0, '.', '.');  ?></td>
-        <td align="center"><?php echo number_format($array_electores_por_partido['EXTRANJEROS'], 0, '.', '.');  ?></td>
-        <td align="center"><?php echo number_format($array_electores_por_partido['TOTAL'], 0, '.', '.');  ?></td>
-        
-    </tr>
+                        
+                        <!--
+                        
+                        <div id="top_x_div" style="width: 900px; height: 500px;"></div> 
+                    -->                        
 
-</table>
+                        <br>
 
-<br>
- 
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Precandidatos a Intendentes
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <ul class="list-group">
- 
- 
-        <?php
-        foreach ($candidatos_intendentes as $candidato) { ?>
-                <li class="list-group-item"><?php echo $candidato; ?></li>
 
-          <?php  }   ?>
-         </ul>
-      </div>
+                        
+                </div>
+                </div>
+            </div>
+
+        <!--  Modulo 2  -->
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            Datos por Seccion:  <?php echo " - Sección Electoral : ".$idConsulta; ?>
+            </button>
+            </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                        <h3 style="color: #009aae">Datos por Sección Electoral</h3>
+                        <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td align="center"><b style="color:#009aae;">Nacionales</b></td>
+                            <td align="center"><b style="color:#009aae;">Extranjeros</b></td>
+                            <td align="center"><b style="color:#009aae;">Total</b></td>
+                    
+                        </tr>
+                        <tr>
+                            <td><b style="color:#009aae;"><i class="fa-sharp fa-school-flag"></i>&nbsp;Establecimientos</b></td>
+                            <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
+                            <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
+                            <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                        
+                        </tr>
+                    
+                        <tr>
+                            <td><b style="color:#009aae;"><i class="fa-solid fa-boxes-packing"></i>&nbsp;Mesas</b></td>
+                            <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
+                            <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
+                            <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
+                    
+                        </tr>
+                        <tr>
+                            <td><b style="color:#009aae;"><i class="fa-solid fa-person"></i>&nbsp;Electores</b></td>
+                            <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
+                            <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
+                            <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                    
+                        </tr>
+
+                    </table>
+                    <br>
+                    <h3 style="color: #009aae">Datos Unidades Carcelarias</h3>
+                    <table bgcolor="#FFFFFF" border="3"style="width: 100%"   bordercolor="#009aae" cellpadding="5" cellspacing="0">
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td align="center"><b style="color:#009aae;">Mesas</b></td>
+                            <td align="center"><b style="color:#009aae;">Electores</b></td>
+                        
+                        </tr>
+                        <tr>
+                            <td><b style="color:#009aae;"><i class="fa-solid fa-handcuffs"></i>&nbsp;Unidades Carcelarias</b></td>
+                            <td align="center"><?php echo  $presos['cantidad_mesas']; ?></td>
+                            <td align="center"><?php echo $presos['cantidad_electores']; ?></td>
+                            
+                        </tr>
+                    
+
+                    </table>
+
+
+                    <br>
+                    <h3 style="color: #009aae">Datos por Partido</h3>
+                    <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td align="center"><b style="color:#009aae;">Nacionales</b></td>
+                            <td align="center"><b style="color:#009aae;">Extranjeros</b></td>
+                            <td align="center"><b style="color:#009aae;">Total </b></td>
+                    
+                        </tr>
+                        <tr>
+                            <td><b style="color:#009aae;"><i class="fa-sharp fa-school-flag"></i>&nbsp;Establecimientos</b></td>
+                            <td align="center"><?php echo number_format($array_establecimientos_por_partido['NACIONALES'], 0, '.', '.');  ?></td>
+                            <td align="center"><?php echo number_format($array_establecimientos_por_partido['EXTRANJEROS'], 0, '.', '.');  ?></td>
+                            <td align="center"><?php echo number_format($array_establecimientos_por_partido['TOTAL'], 0, '.', '.');  ?></td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td><b style="color:#009aae;"><i class="fa-solid fa-boxes-packing"></i>&nbsp;Mesas</b></td>
+                            <td align="center"><?php echo number_format($array_mesas_por_partido['NACIONALES'], 0, '.', '.'); ?></td>
+                            <td align="center"><?php echo number_format($array_mesas_por_partido['EXTRANJEROS'], 0, '.', '.');  ?></td>
+                            <td align="center"><?php echo number_format($array_mesas_por_partido['TOTAL'], 0, '.', '.'); ?></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><b style="color:#009aae;"><i class="fa-solid fa-person"></i>&nbsp;Electores</b></td>
+                            <td align="center"><?php echo number_format($array_electores_por_partido['NACIONALES'], 0, '.', '.');  ?></td>
+                            <td align="center"><?php echo number_format($array_electores_por_partido['EXTRANJEROS'], 0, '.', '.');  ?></td>
+                            <td align="center"><?php echo number_format($array_electores_por_partido['TOTAL'], 0, '.', '.');  ?></td>
+                            
+                        </tr>
+
+                    </table>
+                </div>
+                </div>
+            </div>
+
+
+
+        <!--  Modulo 3   -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+            Total de datos en Provincia.
+        </button>
+        </h2>
+            <div id="collapseThree" class="accordion-collapse collapse " aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body"> 
+                    
+                </div>
+            </div>
+        </div>
+    
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Precandidatos a Concejal
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-     <ul class="list-group">
- 
- 
-        <?php
-        foreach ($candidatos_consejales as $concejal) { ?>
-                <li class="list-group-item"><?php echo $concejal; ?></li>
-
-          <?php  }   ?>
-         </ul>
-    </div>
-  </div>
-  
-</div>
-<br>
- 
+    <br> 
 
 </div>
+
+
+
 <div class="modal-footer">
     <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 </div>    
