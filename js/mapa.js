@@ -122,8 +122,8 @@ function onEachFeature(feature, layer) {
 
 function modalNew(feature) {
     cargarContenidoNew(feature);
+    
     $('#modalMapaNew').modal('show');
-
     //modalMapaNew.show();
 }
 
@@ -155,11 +155,56 @@ function cargarContenidoNew(feature) {
     .catch((error) => console.error("Error:", error))
     .then(response => { 
         //console.log("Success:", response.text());
+        cargarGrafico("top_x_div");
+        cargarGrafico("top_x_div2");
+        cargarGrafico("top_x_div3");
         document.querySelector('.modal-content').innerHTML = response;
-    });
+    });  
 
+}
+function cargarGrafico(id){
     
+    let Candidato1="Candidato1";
+    let Candidato2="Candidato2";
+    let Candidato3="Candidato3";
+    let Candidato4="Candidato4";
 
+    let vot1=100;
+    let vot2=100;
+    let vot3=100;
+    let vot4=100;
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Candidatos', 'Votos'],
+          [Candidato1, vot1],
+          [Candidato2, vot2],
+          [Candidato3, vot3],
+          [Candidato4, vot4]
+        ]);
+
+        var options = {
+          title: 'Candidatos',
+          width: 850,
+          legend: { position: 'none' },
+          
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Cantidad de votos'} // Top x-axis.
+            },
+            y: {
+                0: { side: 'left', label: ''} // Top x-axis.
+              }
+          },
+          bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById(id));
+        chart.draw(data, options);
+      };
 }
 
 geojson = L.geoJson(municipios, {
