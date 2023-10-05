@@ -255,8 +255,8 @@ catch (Exception $e) {
             Resultados por partido: <?php echo $nombreHeader; ?>
             </button>
             </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
+                <div id="collapseOne" class="accordion-collapse collapse    " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body" style="text-align: center">
                     <h3 style="color: #009aae">Datos por Agrupacion</h3>
 
                             <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
@@ -264,13 +264,12 @@ catch (Exception $e) {
                                 <td>&nbsp;</td>
                                 <td align="center"><b style="color:#009aae;">Nacionales</b></td>
                                 <td align="center"><b style="color:#009aae;">Extranjeros</b></td>
-                                <td align="center"><b style="color:#009aae;">Total</b></td>                
-                                <td align="center"><b style="color:#009aae;">Blanco</b></td>                
+                                <td align="center"><b style="color:#009aae;">Total</b></td>       
                             </tr>
 
 
                             <tr>
-                                <td><b style="color:#009aae;">&nbsp;Primer candidato</b></td>
+                                <td><b style="color:#009aae;" id="partido_candidato_1">&nbsp;Primer candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
@@ -278,41 +277,36 @@ catch (Exception $e) {
                             </tr>
                         
                             <tr>
-                                <td><b style="color:#009aae;">&nbsp;Segundo candidato</b></td>
+                                <td><b style="color:#009aae;" id="partido_candidato_2">&nbsp;Segundo candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
                                 <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
                                 <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
                         
                             </tr>
                             <tr>
-                                <td><b style="color:#009aae;">&nbsp;Tercer candidato</b></td>
+                                <td><b style="color:#009aae;" id="partido_candidato_3">&nbsp;Tercer candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
                         
                             </tr>
                             <tr>
-                                <td><b style="color:#009aae;">&nbsp;Cuarto candidato</b></td>
+                                <td><b style="color:#009aae;" id="partido_candidato_4">&nbsp;Cuarto candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>                        
                             </tr>    
                            
-                        </table>                        
-                        
-                        
-                        <!--
-                        <img src="img\grafico.png" alt="">  
-                        
-                    -->                         
+                        </table>             
                     <br>
                     <br> 
-                        <div id="top_x_div" style="width: 900px; height: 500px;"></div> 
+                    <br>
+                    <div id="top_x_div" style="width: 90%; height: 500px; margin:auto"></div> 
                 </div>
                 </div>
             </div>
 
-        <!--  Modulo 2  -->
+        <!--  Modulo 2   -->
             <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -320,7 +314,7 @@ catch (Exception $e) {
             </button>
             </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body" >
+                <div class="accordion-body" style="text-align: center">
 
                 <h3 style="color: #009aae">Datos por Agrupacion</h3>
 
@@ -334,7 +328,7 @@ catch (Exception $e) {
                     </tr>
 
                     <tr>
-                        <td><b style="color:#009aae;">&nbsp;Primer candidato</b></td>
+                        <td><b style="color:#009aae;" id="seccion_candidato_1">&nbsp;Primer candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
@@ -342,29 +336,31 @@ catch (Exception $e) {
                     </tr>
 
                     <tr>
-                        <td><b style="color:#009aae;">&nbsp;Segundo candidato</b></td>
+                        <td><b style="color:#009aae;" id="seccion_candidato_2">>&nbsp;Segundo candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
                         <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
                         <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
 
                     </tr>
                     <tr>
-                        <td><b style="color:#009aae;">&nbsp;Tercer candidato</b></td>
+                        <td><b style="color:#009aae;" id="seccion_candidato_3">>&nbsp;Tercer candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                     </tr>
                     <tr>
-                        <td><b style="color:#009aae;">&nbsp;Cuarto candidato</b></td>
+                        <td><b style="color:#009aae;" id="seccion_candidato_4">>&nbsp;Cuarto candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                     </tr>
                     </table>
-
-                    <div id="top_x_div2" style="width: 900px; height: 500px;"></div> 
+                    <br>
+                    <br>
+                    <br>
+                    <div id="top_x_div2" style="width: 90%; height: 500px; margin:auto"></div> 
                     
                     
                 </div>
@@ -376,11 +372,11 @@ catch (Exception $e) {
             <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                Total resuultados en Provincia.
+                Total resultados en Provincia.
             </button>
             </h2>
                 <div id="collapseThree" class="accordion-collapse collapse " aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">                    
+                <div class="accordion-body" style="text-align: center">                   
                     <h3 style="color: #009aae">Datos por Agrupacion</h3>
                         <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
                         <tr>   
@@ -392,7 +388,7 @@ catch (Exception $e) {
                         </tr>
 
                         <tr>
-                            <td><b style="color:#009aae;">&nbsp;Primer candidato</b></td>
+                            <td><b style="color:#009aae;" id="provincia_candidato_1">>&nbsp;Primer candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
@@ -400,29 +396,31 @@ catch (Exception $e) {
                         </tr>
 
                         <tr>
-                            <td><b style="color:#009aae;">&nbsp;Segundo candidato</b></td>
+                            <td><b style="color:#009aae;" id="provincia_candidato_2">&nbsp;Segundo candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
                             <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
                             <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
 
                         </tr>
                         <tr>
-                            <td><b style="color:#009aae;">&nbsp;Tercer candidato</b></td>
+                            <td><b style="color:#009aae;" id="provincia_candidato_3">&nbsp;Tercer candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                         </tr>
                         <tr>
-                            <td><b style="color:#009aae;">&nbsp;Cuarto candidato</b></td>
+                            <td><b style="color:#009aae;" id="provincia_candidato_4">&nbsp;Cuarto candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                         </tr>
                         </table>
-
-                        <div id="top_x_div3" style="width: 900px; height: 500px;"></div> 
+                        <br>
+                        <br>
+                        <br>
+                        <div id="top_x_div3" style="width: 90%; height: 500px; margin:auto"></div> 
                 </div>
                 </div>
             </div>
@@ -435,8 +433,8 @@ catch (Exception $e) {
                 Establecimientos y mesas
             </button>
             </h2>
-                <div id="collapseFour" class="accordion-collapse collapse " aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                    <div class="accordion-body"> 
+                <div id="collapseFour" class="accordion-collapse collapse  " aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body" style="text-align: left"> 
                     <h3 style="color: #009aae">Datos por Sección Electoral</h3>
                             <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
 
@@ -553,15 +551,19 @@ catch (Exception $e) {
 </div>    
 
 <script>
-    $(document).ready(function() {
+    
+    document.addEventListener("DOMContentLoaded", function () {
         // Obtén el ID del contenedor del gráfico
         var chartContainerId = 'top_x_div';
-
-
+        
+        // Busca el acordeón por su ID
+        var acordeon = document.getElementById('collapseOne');
+        console.log('>>',   acordeon);
         // Escucha el evento de Bootstrap cuando el acordeón se está mostrando
-        $('#collapseOne').on('shown.bs.collapse', function () {
-            // Llama a la función para cargar el gráfico con el ID del contenedor
+        acordeon.addEventListener('shown.bs.collapse', function () {
+            // Llama a la función para cargar el gráfico con el ID del  contenedor
             cargarGrafico(chartContainerId);
+            alert("¡Se mostró el acordeón!");
         });
     });
 </script>
