@@ -157,10 +157,8 @@ function cargarContenidoNew(feature) {
         //console.log("Success:", response.text());
         
 
-        document.querySelector('.modal-content').innerHTML = response;
-        setTimeout(function(){
-            accordionEvents();
-        },1000);
+        document.querySelector('.modal-content').innerHTML = response;        
+            accordionEvents();        
     });
 
     
@@ -168,23 +166,22 @@ function cargarContenidoNew(feature) {
 
 
 
-function accordionEvents (){  
-         
-
-        cargarGrafico("top_x_div");
-        cargarGrafico("top_x_div2");
-        cargarGrafico("top_x_div3");
-
-        var chartContainer = 'top_x_div';        
+function accordionEvents (){     
+        
+        var chartContainer1 = 'top_x_div';        
         var chartContainer2 = 'top_x_div2';        
-        var chartContainer3 = 'top_x_div3';    
+        var chartContainer3 = 'top_x_div3';   
 
+        cargarGrafico(chartContainer1);
+        cargarGrafico(chartContainer2);
+        cargarGrafico(chartContainer3);
+    
         var acordeon = document.getElementById('collapseOne');       
         var acordeon2 = document.getElementById('collapseTwo');       
         var acordeon3 = document.getElementById('collapseThree');     
 
         acordeon.addEventListener('shown.bs.collapse', function () {           
-            cargarGrafico(chartContainer);
+            cargarGrafico(chartContainer1);
         });
         acordeon2.addEventListener('shown.bs.collapse', function () {           
             cargarGrafico(chartContainer2);
@@ -195,33 +192,37 @@ function accordionEvents (){
 }
 
 
-function cargarGrafico(id){     
+function cargarGrafico(id){ 
 
-    // //SI: id="top_x_div" -> let=nombre_candidato = "partido_candidato_1"
-    // if (id="top_x_div"){
-    //     let=nombre_candidato1 = "partido_candidato_1"
-    //     let=nombre_candidato2 = "partido_candidato_2"
-    //     let=nombre_candidato3 = "partido_candidato_3"
-    //     let=nombre_candidato4 = "partido_candidato_4"
-    // }
-    // if (id="top_x_div2"){
-    //     let=nombre_candidato = "seccion_candidato_1"
-    // }
-    // if (id="top_x_div3"){
-    //     let=nombre_candidato = "partido_candidato_1"
-    // }
-              
+    let Candidato1="prueba";
+    let Candidato2="prueba";      
+    let Candidato3="prueba";      
+    let Candidato4="prueba";
 
-    let Candidato1=document.getElementById("partido_candidato_1").textContent;
-    let Candidato2=document.getElementById("partido_candidato_2").textContent;
-    let Candidato3=document.getElementById("partido_candidato_3").textContent;
-    let Candidato4=document.getElementById("partido_candidato_4").textContent;
-
-    
     let vot1=25;
     let vot2=50;
     let vot3=100;
     let vot4=200;
+
+    if(id=='top_x_div'){
+    Candidato1=document.getElementById("partido_candidato_1").textContent;
+    Candidato2=document.getElementById("partido_candidato_2").textContent;
+    Candidato3=document.getElementById("partido_candidato_3").textContent;
+    Candidato4=document.getElementById("partido_candidato_4").textContent;
+    }
+    if(id=='top_x_div2'){
+    Candidato1=document.getElementById("seccion_candidato_1").textContent;
+    Candidato2=document.getElementById("seccion_candidato_2").textContent;
+    Candidato3=document.getElementById("seccion_candidato_3").textContent;
+    Candidato4=document.getElementById("seccion_candidato_4").textContent;
+    }
+    if(id=='top_x_div3'){
+    Candidato1=document.getElementById("provincia_candidato_1").textContent;
+    Candidato2=document.getElementById("provincia_candidato_2").textContent;
+    Candidato3=document.getElementById("provincia_candidato_3").textContent;
+    Candidato4=document.getElementById("provincia_candidato_4").textContent;
+    } 
+    
 
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawStuff);
