@@ -195,11 +195,7 @@ function accordionEvents (){
 function cargarGrafico(id){ 
 
     let Candidato1, Candidato2, Candidato3, Candidato4;
-
-    let vot1;
-    let vot2;
-    let vot3;
-    let vot4;
+    let vot1, vot2, vot3, vot4;
 
     if(id=='top_x_div'){
     Candidato1=document.getElementById("partido_candidato_1").textContent;
@@ -207,10 +203,13 @@ function cargarGrafico(id){
     Candidato3=document.getElementById("partido_candidato_3").textContent;
     Candidato4=document.getElementById("partido_candidato_4").textContent;
 
-    vot1=document.getElementById("vot_1_partido").textContent;
-    vot2=document.getElementById("vot_2_partido").textContent;
-    vot3=document.getElementById("vot_3_partido").textContent;
-    vot4=document.getElementById("vot_4_partido").textContent;
+    vot1=parseInt((document.getElementById("vot_1_partido").textContent).replace(".", ""));   
+    vot2=parseInt((document.getElementById("vot_2_partido").textContent).replace(".", ""));   
+    vot3=parseInt((document.getElementById("vot_3_partido").textContent).replace(".", ""));   
+    vot4=parseInt((document.getElementById("vot_4_partido").textContent).replace(".", ""));
+
+    console.log(vot1,vot2,vot3,vot4);
+
     }
     if(id=='top_x_div2'){
     Candidato1=document.getElementById("seccion_candidato_1").textContent;
@@ -218,10 +217,11 @@ function cargarGrafico(id){
     Candidato3=document.getElementById("seccion_candidato_3").textContent;
     Candidato4=document.getElementById("seccion_candidato_4").textContent;
 
-    vot1=document.getElementById("vot_1_seccion").textContent;
-    vot2=document.getElementById("vot_2_seccion").textContent;
-    vot3=document.getElementById("vot_3_seccion").textContent;
-    vot4=document.getElementById("vot_4_seccion").textContent;
+    vot1=parseInt((document.getElementById("vot_1_seccion").textContent).replace(".", ""));   
+    vot2=parseInt((document.getElementById("vot_2_seccion").textContent).replace(".", ""));   
+    vot3=parseInt((document.getElementById("vot_3_seccion").textContent).replace(".", ""));   
+    vot4=parseInt((document.getElementById("vot_4_seccion").textContent).replace(".", ""));   
+    console.log(vot1,vot2,vot3,vot4);
     }
     if(id=='top_x_div3'){
     Candidato1=document.getElementById("provincia_candidato_1").textContent;
@@ -229,10 +229,11 @@ function cargarGrafico(id){
     Candidato3=document.getElementById("provincia_candidato_3").textContent;
     Candidato4=document.getElementById("provincia_candidato_4").textContent;
 
-    vot1=document.getElementById("vot_1_provincia").textContent;
-    vot2=document.getElementById("vot_2_provincia").textContent;
-    vot3=document.getElementById("vot_3_provincia").textContent;
-    vot4=document.getElementById("vot_4_provincia").textContent;
+    vot1=parseInt((document.getElementById("vot_1_provincia").textContent).replace(".", ""));   
+    vot2=parseInt((document.getElementById("vot_2_provincia").textContent).replace(".", ""));   
+    vot3=parseInt((document.getElementById("vot_3_provincia").textContent).replace(".", ""));   
+    vot4=parseInt((document.getElementById("vot_4_provincia").textContent).replace(".", ""));   
+    console.log(vot1,vot2,vot3,vot4);
     }
     
 
