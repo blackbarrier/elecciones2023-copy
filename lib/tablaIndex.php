@@ -275,7 +275,7 @@ catch (Exception $e) {
                                 <td><b style="color:#009aae;" id="partido_candidato_1">&nbsp;Primer candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                                <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                                <td align="center" id="vot_1_partido"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
                             
                             </tr>
                         
@@ -283,21 +283,21 @@ catch (Exception $e) {
                                 <td><b style="color:#009aae;" id="partido_candidato_2">&nbsp;Segundo candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
                                 <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
-                                <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
+                                <td align="center" id="vot_2_partido"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
                         
                             </tr>
                             <tr>
                                 <td><b style="color:#009aae;" id="partido_candidato_3">&nbsp;Tercer candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                                <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                                <td align="center" id="vot_3_partido"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
                         
                             </tr>
                             <tr>
                                 <td><b style="color:#009aae;" id="partido_candidato_4">&nbsp;Cuarto candidato PARTIDO</b></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                                <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>                        
+                                <td align="center" id="vot_4_partido"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>                        
                             </tr>    
                            
                         </table>             
@@ -334,7 +334,7 @@ catch (Exception $e) {
                         <td><b style="color:#009aae;" id="seccion_candidato_1">&nbsp;Primer candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                        <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                        <td align="center" id="vot_1_seccion"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                     </tr>
 
@@ -342,21 +342,21 @@ catch (Exception $e) {
                         <td><b style="color:#009aae;" id="seccion_candidato_2">&nbsp;Segundo candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
                         <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
-                        <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
+                        <td align="center" id="vot_2_seccion"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
 
                     </tr>
                     <tr>
                         <td><b style="color:#009aae;" id="seccion_candidato_3">&nbsp;Tercer candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                        <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                        <td align="center" id="vot_3_seccion"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                     </tr>
                     <tr>
                         <td><b style="color:#009aae;" id="seccion_candidato_4">&nbsp;Cuarto candidato SECCION</b></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                         <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                        <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                        <td align="center" id="vot_4_seccion"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                     </tr>
                     </table>
@@ -394,7 +394,7 @@ catch (Exception $e) {
                             <td><b style="color:#009aae;" id="provincia_candidato_1">&nbsp;Primer candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_establecimientos_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_establecimientos_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                            <td align="center"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                            <td align="center" id="vot_1_provincia"><?php echo number_format($array_establecimientos_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                         </tr>
 
@@ -402,21 +402,21 @@ catch (Exception $e) {
                             <td><b style="color:#009aae;" id="provincia_candidato_2">&nbsp;Segundo candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_mesas_por_seccion['NACIONALES'], 0, '.', '.');  ?></td>
                             <td align="center"><?php echo number_format($array_mesas_por_seccion['EXTRANJEROS'], 0, '.', '.');  ?></td>
-                            <td align="center"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
+                            <td align="center" id="vot_2_provincia"><?php echo number_format($array_mesas_por_seccion['TOTAL'], 0, '.', '.');  ?></td>
 
                         </tr>
                         <tr>
                             <td><b style="color:#009aae;" id="provincia_candidato_3">&nbsp;Tercer candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                            <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                            <td align="center" id="vot_3_provincia"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                         </tr>
                         <tr>
                             <td><b style="color:#009aae;" id="provincia_candidato_4">&nbsp;Cuarto candidato PROVINCIA</b></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                             <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
-                            <td align="center"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
+                            <td align="center" id="vot_4_provincia"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                         </tr>
                         </table>

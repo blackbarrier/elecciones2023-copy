@@ -194,34 +194,46 @@ function accordionEvents (){
 
 function cargarGrafico(id){ 
 
-    let Candidato1="prueba";
-    let Candidato2="prueba";      
-    let Candidato3="prueba";      
-    let Candidato4="prueba";
+    let Candidato1, Candidato2, Candidato3, Candidato4;
 
-    let vot1=25;
-    let vot2=50;
-    let vot3=100;
-    let vot4=200;
+    let vot1;
+    let vot2;
+    let vot3;
+    let vot4;
 
     if(id=='top_x_div'){
     Candidato1=document.getElementById("partido_candidato_1").textContent;
     Candidato2=document.getElementById("partido_candidato_2").textContent;
     Candidato3=document.getElementById("partido_candidato_3").textContent;
     Candidato4=document.getElementById("partido_candidato_4").textContent;
+
+    vot1=document.getElementById("vot_1_partido").textContent;
+    vot2=document.getElementById("vot_2_partido").textContent;
+    vot3=document.getElementById("vot_3_partido").textContent;
+    vot4=document.getElementById("vot_4_partido").textContent;
     }
     if(id=='top_x_div2'){
     Candidato1=document.getElementById("seccion_candidato_1").textContent;
     Candidato2=document.getElementById("seccion_candidato_2").textContent;
     Candidato3=document.getElementById("seccion_candidato_3").textContent;
     Candidato4=document.getElementById("seccion_candidato_4").textContent;
+
+    vot1=document.getElementById("vot_1_seccion").textContent;
+    vot2=document.getElementById("vot_2_seccion").textContent;
+    vot3=document.getElementById("vot_3_seccion").textContent;
+    vot4=document.getElementById("vot_4_seccion").textContent;
     }
     if(id=='top_x_div3'){
     Candidato1=document.getElementById("provincia_candidato_1").textContent;
     Candidato2=document.getElementById("provincia_candidato_2").textContent;
     Candidato3=document.getElementById("provincia_candidato_3").textContent;
     Candidato4=document.getElementById("provincia_candidato_4").textContent;
-    } 
+
+    vot1=document.getElementById("vot_1_provincia").textContent;
+    vot2=document.getElementById("vot_2_provincia").textContent;
+    vot3=document.getElementById("vot_3_provincia").textContent;
+    vot4=document.getElementById("vot_4_provincia").textContent;
+    }
     
 
       google.charts.load('current', {'packages':['bar']});
