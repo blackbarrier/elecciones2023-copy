@@ -156,11 +156,9 @@ function cargarContenidoNew(feature) {
     .then(response => { 
         //console.log("Success:", response.text());
         
-
         document.querySelector('.modal-content').innerHTML = response;        
             accordionEvents();        
     });
-
     
 }
 
@@ -207,12 +205,9 @@ function cargarGrafico(id){
     vot1 = parseInt(document.getElementById("vot_1_partido").textContent.replace(/\./g, ""));
     vot2 = parseInt(document.getElementById("vot_2_partido").textContent.replace(/\./g, ""));
     vot3 = parseInt(document.getElementById("vot_3_partido").textContent.replace(/\./g, ""));
-    vot4 = parseInt(document.getElementById("vot_4_partido").textContent.replace(/\./g, ""));
-    
-
-    console.log(vot1,vot2,vot3,vot4);
-
+    vot4 = parseInt(document.getElementById("vot_4_partido").textContent.replace(/\./g, ""));  
     }
+
     if(id=='top_x_div2'){
     Candidato1=document.getElementById("seccion_candidato_1").textContent;
     Candidato2=document.getElementById("seccion_candidato_2").textContent;
@@ -223,8 +218,8 @@ function cargarGrafico(id){
     vot2 = parseInt(document.getElementById("vot_2_seccion").textContent.replace(/\./g, ""));
     vot3 = parseInt(document.getElementById("vot_3_seccion").textContent.replace(/\./g, ""));
     vot4 = parseInt(document.getElementById("vot_4_seccion").textContent.replace(/\./g, ""));   
-    console.log(vot1,vot2,vot3,vot4);
     }
+
     if(id=='top_x_div3'){
     Candidato1=document.getElementById("provincia_candidato_1").textContent;
     Candidato2=document.getElementById("provincia_candidato_2").textContent;
@@ -235,7 +230,6 @@ function cargarGrafico(id){
     vot2 = parseInt(document.getElementById("vot_2_provincia").textContent.replace(/\./g, ""));
     vot3 = parseInt(document.getElementById("vot_3_provincia").textContent.replace(/\./g, ""));
     vot4 = parseInt(document.getElementById("vot_4_provincia").textContent.replace(/\./g, "")); 
-    console.log(vot1,vot2,vot3,vot4);
     }
     
 
@@ -275,6 +269,42 @@ function cargarGrafico(id){
       };
 }
 
+
+function cargaMiniGrafico(id, vot1, vot2, vot3, vot4){
+
+    google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Partido');
+        data.addColumn('number', 'Votos');
+        data.addRows([
+          ['Partido1', vot1],
+          ['Partido2', vot2],
+          ['Partido3', vot3],
+          ['Partido4', vot4]
+        ]);
+
+        // Set chart options
+        var options = {'width':'18rem',
+                       'height':'auto'};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById(id));
+        chart.draw(data, options);
+      }
+   
+
+}
+
 geojson = L.geoJson(municipios, {
     style: style,
     onEachFeature: onEachFeature
@@ -309,8 +339,10 @@ info.update = function (props) {
             '<li class="list-group-item d-flex justify-content-between">Establecimientos extranjeros <b>'+ props.cantidadEstablecimientosExtranjeros +'</b></li>' +
             '<li class="list-group-item d-flex justify-content-between">Mesas nacionales <b>'+ props.cantidadMesas +'</b></li>' +
             '<li class="list-group-item d-flex justify-content-between">Mesas extranjeras <b>'+ props.cantidadMesasExtranjeros +'</b></li>' +
-            '</ul>' +            
+            '</ul>' +
+            '<div style="max-width:18rem" id="mini-graph"></div>' +
             '</div>';
+        cargaMiniGrafico("mini-graph",props.res1,props.res2,props.res3,props.res4);
         this._div.innerHTML = cardHtml;        
     }
 };

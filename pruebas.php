@@ -45,3 +45,37 @@
 
 
 
+google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawStuff);
+    function drawStuff() {
+      var data = new google.visualization.arrayToDataTable([
+        ['Candidatos', 'Votos'],
+        ["Candidato1", 2],
+        ["Candidato2", 4],
+        ["Candidato3", 4],
+        ["Candidato4", 2],
+      ]);
+
+      data.sort({column: 1, desc: true});
+
+      var options = {
+        title: 'Candidatos',
+        width: '100%',
+        height: 50,
+        legend: { position: 'none' },
+        
+        bars: 'horizontal', // Required for Material Bar Charts.
+        axes: {
+          x: {
+            0: { side: 'top', label: 'Cantidad de votos'} // Top x-axis.
+          },
+          y: {
+              0: { side: 'left', label: ''} // Top x-axis.
+            }
+        },
+        bar: { groupWidth: 20 }
+      };
+
+      var chart = new google.charts.Bar(document.getElementById(element));
+      chart.draw(data, options);
+    };

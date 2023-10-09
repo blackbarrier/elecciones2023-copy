@@ -50,6 +50,11 @@ try {
         $props->seccion = $fila['seccion'];
         $props->nombreSeccion = $fila['nombre_seccion'];
         $props->colorSeccion = $fila['color_seccion'];
+        $props->res1 = 5;
+        $props->res2 = 10;
+        $props->res3 = 15; ////Esta info sale de la consulta de arriba
+        $props->res4 = 20;
+        
 
         /** Agrega datos de establecimientos y escuelas a las propiedades de cada municipio */
         $props = datosMesaYEstablecimientoPara($props, $mesasYEstablecimientos);
