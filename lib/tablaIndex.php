@@ -27,6 +27,7 @@ try {
 
     
     mysqli_set_charset($conexion, 'UTF8');
+    
     // TOTAL ESTABLECIMIENTOS POR PARTIDO
     $sql = "SELECT 'EXTRANJEROS' AS padron , 
                 COUNT(a.establecimiento) AS cantidad
@@ -195,17 +196,17 @@ try {
 
 
 
-    $candidatos_intendentes=array();
-    $candidatos_consejales=array();
-    //-- CANDIDATOS
-    $sql_candidatos=" SELECT * FROM `candidato_municipal` WHERE seccion='{$nombreConsulta}' order by intendente ";
+    // $candidatos_intendentes=array();
+    // $candidatos_consejales=array();
+    // //-- CANDIDATOS
+    // $sql_candidatos=" SELECT * FROM `candidato_municipal` WHERE seccion='{$nombreConsulta}' order by intendente ";
 
-    $res_candidatos = mysqli_query($conexion, $sql_candidatos) or die(mysqli_error($conexion));
-    while($fila_candidatos = mysqli_fetch_assoc($res_candidatos))
-    {
-         $candidatos_intendentes[] = "<b>".$fila_candidatos['intendente']."</b> (".$fila_candidatos['fuerza_politica']." - ".$fila_candidatos['linea'].")";
-         $candidatos_consejales[] = "<b>".$fila_candidatos['primer_concejal']."</b>  (".$fila_candidatos['fuerza_politica']." - ".$fila_candidatos['linea'].")";
-    }   
+    // $res_candidatos = mysqli_query($conexion, $sql_candidatos) or die(mysqli_error($conexion));
+    // while($fila_candidatos = mysqli_fetch_assoc($res_candidatos))
+    // {
+    //      $candidatos_intendentes[] = "<b>".$fila_candidatos['intendente']."</b> (".$fila_candidatos['fuerza_politica']." - ".$fila_candidatos['linea'].")";
+    //      $candidatos_consejales[] = "<b>".$fila_candidatos['primer_concejal']."</b>  (".$fila_candidatos['fuerza_politica']." - ".$fila_candidatos['linea'].")";
+    // }   
    
 
 
