@@ -1,76 +1,89 @@
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Candidatos', 'Porcentaje'],
-          ["Candidato1", 44],
-          ["Candidato2", 31],
-          ["Candidato3", 12],
-          ["Candidato4", 10]
-        ]);
-
-        var options = {
-          title: 'Chess opening moves',
-          width: 900,
-          legend: { position: 'none' },
-          chart: { title: 'Votos por candidato',
-                   subtitle: 'por cantidad y porcentaje' },
-          bars: 'horizontal', // Required for Material Bar Charts.
-          axes: {
-            x: {
-              0: { side: 'top', label: 'Cantidad de votos'} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        chart.draw(data, options);
-      };
-    </script>
-  </head>
-  <body>
-    <div id="top_x_div" style="width: 900px; height: 500px;"></div>
-  </body>
-</html>
-
 
 <?php
 
-$sql = "WITH RankedVotes AS (
-        SELECT
-          seccion_id,
-          agrupacion_nombre,
-          SUM(votos_cantidad) as suma_votos_positivos,
-          RANK() OVER (PARTITION BY seccion_id ORDER BY SUM(votos_cantidad) DESC) as rango
-        FROM
-          pba_gobernador_2023
-        WHERE
-          votos_tipo = 'POSITIVO' AND mesa_tipo = 'NATIVOS' AND seccion_id={$idMunicipio}
-        GROUP BY
-          seccion_id,
-          agrupacion_nombre
-        )
-        SELECT
-            seccion_id,
-            agrupacion_nombre,
-            suma_votos_positivos
-        FROM
-            RankedVotes
-        WHERE
-            rango <= 4;";
+$SERVER="test-cluster1.gob.gba.gob.ar";
+$USUARIO="lbarrera";
+$CLAVE="lb4rr3r4_PaS*";
+$BASE="ResultadosPaso2021";
 
-        $res = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
-        //$array_por_partido = mysqli_fetch_assoc($res);
+$conexion = mysqli_connect($SERVER,$USUARIO,$CLAVE,$BASE);
 
-        
-        $array_votos1_por_partido_nac =  $array_por_partido[0]["suma_votos_positivos"];
-        $array_votos2_por_partido_nac =  $array_por_partido[1]["suma_votos_positivos"];
-        $array_votos3_por_partido_nac =  $array_por_partido[2]["suma_votos_positivos"];
-        $array_votos4_por_partido_nac =  $array_por_partido[3]["suma_votos_positivos"];
+if (!$conexion) {
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+else
+{
+	echo "conecta";
+}
+
+////////////////////////
+
+$idMunicipio = 063;
+
+try{
+
+  $candidatos=[$candidato1,$]
+  
+  $candidato1 = [ 'AGRUPACION' => "" ,'EXTRANJEROS' => 0 , 'NACIONALES' => 0 , 'TOTAL' => 0];
+  
+  mysqli_set_charset($conexion, 'UTF8');
+  
+  $sql =
+  "SELECT  seccion_nombre,  agrupacion_nombre AS agrupacion,  mesa_tipo,	  SUM(votos_cantidad) AS cant_votos
+  FROM
+  pba_gobernador_2023 AS t1
+  INNER JOIN  (
+      SELECT  
+      agrupacion_nombre AS agrupaciones,
+      SUM(votos_cantidad) AS votos_positivos
+    FROM
+      pba_gobernador_2023
+    WHERE
+      seccion_id = {$idMunicipio} and votos_tipo = 'POSITIVO'   	 		 
+    GROUP BY
+      agrupacion_nombre
+  ORDER BY
+    votos_positivos DESC LIMIT 4
+  ) AS t2
+
+  ON t1.agrupacion_nombre = t2.agrupaciones
+
+  WHERE
+  seccion_id = {$idMunicipio} and
+  votos_tipo = 'POSITIVO' 
+
+  GROUP BY
+  agrupacion_nombre, mesa_tipo
+  ORDER BY
+  cant_votos DESC ";
+
+
+  $res = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
+
+  while($fila = mysqli_fetch_assoc($res))
+  {
+
+      $candidato1['AGRUPACION'] = $fila['agrupacion'];
+      if($fila['padron'] == 'EXTRANJEROS')
+      {
+          $candidato1['EXTRANJEROS'] = $fila['cant_votos'];
+      }
+      if($fila['padron'] == 'NACIONALES')
+      {
+          $candidato1['NACIONALES'] = $fila['cant_votos'];
+      }
+      // $array_establecimientos_por_partido['TOTAL'] += $fila['cant_votos'];
+      $candidato1['TOTAL'] = $fila['cant_votos'];
+
+    }
+    var_dump($candidato1);
+  
+
+
+}
+catch (Exception $e) {
+  return $e->getMessage();
+}

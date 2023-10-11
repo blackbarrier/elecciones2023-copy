@@ -33,7 +33,7 @@ try {
                 COUNT(a.establecimiento) AS cantidad
                 FROM lugar_votacion_extranjero a
                 /*WHERE seccion = '{$nombreConsulta}'*/
-                WHERE codigo_seccion = {$idMunicipio}
+                WHERE codigo_seccion = {$idMunicipio}   
             UNION ALL
             SELECT 'NACIONALES' AS padron, 
                     COUNT(a.establecimiento) AS cantidad
@@ -299,7 +299,7 @@ catch (Exception $e) {
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['NACIONALES'], 0, '.', '.'); ?></td>
                                 <td align="center"><?php echo number_format($array_electores_por_seccion['EXTRANJEROS'], 0, '.', '.'); ?></td>
                                 <td align="center" id="vot_4_partido"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>                        
-                            </tr>    
+                            </tr>                           
                            
                         </table>             
                     <br>
@@ -360,6 +360,7 @@ catch (Exception $e) {
                         <td align="center" id="vot_4_seccion"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                     </tr>
+                    <tr></tr>
                     </table>
                     <br>
                     <br>
@@ -420,6 +421,7 @@ catch (Exception $e) {
                             <td align="center" id="vot_4_provincia"><?php echo number_format($array_electores_por_seccion['TOTAL'], 0, '.', '.'); ?></td>
 
                         </tr>
+                        <tr></tr>
                         </table>
                         <br>
                         <br>
@@ -489,6 +491,7 @@ catch (Exception $e) {
                                 <td align="center"><?php echo $presos['cantidad_electores']; ?></td>
                                 
                             </tr>
+                            <tr></tr>
                         
 
                         </table>

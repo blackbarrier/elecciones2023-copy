@@ -251,6 +251,7 @@ function cargarGrafico(id){
           width: '100%',
           height: 350,
           legend: { position: 'none' },
+          colors: ['#009aae', '#009aae', '#009aae', '#009aae'],
           
           bars: 'horizontal', // Required for Material Bar Charts.
           axes: {
