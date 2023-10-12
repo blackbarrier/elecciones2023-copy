@@ -295,8 +295,10 @@ function cargaMiniGrafico(id, vot1, vot2, vot3, vot4){
         ]);
 
         // Set chart options
-        var options = {'width':'18rem',
-                       'height':'auto'};
+        var options = {'title':'Resultados',
+        'titleTextStyle': { fontSize: 15,  textAlign: 'left' },
+          'width':'18rem',
+         'height':'auto'};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById(id));
