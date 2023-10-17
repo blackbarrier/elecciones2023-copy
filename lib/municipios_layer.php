@@ -11,6 +11,41 @@ require_once("conexion.php");
 
 $mesasYEstablecimientos = conteoDeMesasYEstablecimientos($conexion);
 
+    
+///////////////////////////
+try{    
+    $idSeccion = "063";
+            mysqli_set_charset($conexion2, 'UTF8');
+            
+            $sql = "SELECT agrupacion_nombre,
+            SUM(votos_cantidad) AS votos_total
+            FROM
+            pba_gobernador_2023
+            WHERE
+            seccion_id = $idSeccion and
+            distrito_id= 2 and
+            votos_tipo = 'POSITIVO'
+            GROUP BY agrupacion_nombre            
+            ORDER BY votos_total DESC LIMIT 4
+            ";
+            
+            $res = mysqli_query($conexion2, $sql) or die(mysqli_error($conexion2));
+            
+            $i=1;
+            while($fila = mysqli_fetch_assoc($res)){      
+            $candidato_seccion[$i] = [
+                'AGRUPACION' => $fila['agrupacion_nombre'],    
+                'TOTAL' => $fila['votos_total']
+            ];            
+            $i++;
+            }
+        }
+        catch (Exception $e) {
+        return $e->getMessage();
+        }     
+
+///////////////////////////
+
 try {
     /** 
      * Arma el header del json tal cual aparece en municipio.json
@@ -50,14 +85,27 @@ try {
         $props->seccion = $fila['seccion'];
         $props->nombreSeccion = $fila['nombre_seccion'];
         $props->colorSeccion = $fila['color_seccion'];
-        $props->res1 = 5;
-        $props->res2 = 10;
-        $props->res3 = 15; ////Esta info sale de la consulta de arriba
-        $props->res4 = 20;
+        $props = datosMesaYEstablecimientoPara($props, $mesasYEstablecimientos);
+
+        ///////////////////////////////////////////////////////////////////////////
+        
+       
+
+        ///////////////////////////////////////////////////////////////////////////
+
+
+        $props->res1 = intval($candidato_seccion[1]["TOTAL"]);
+        $props->res2 = intval($candidato_seccion[2]["TOTAL"]);
+        $props->res3 = intval($candidato_seccion[3]["TOTAL"]);
+        $props->res4 = intval($candidato_seccion[4]["TOTAL"]);
+
+        // $props->res1 =10;
+        // $props->res2 = 2;
+        // $props->res3 = 3; ////Esta info sale de la consulta de arriba
+        // $props->res4 = 4;
         
 
         /** Agrega datos de establecimientos y escuelas a las propiedades de cada municipio */
-        $props = datosMesaYEstablecimientoPara($props, $mesasYEstablecimientos);
         
         $unFeature = new stdClass();
         $unFeature->type = $fila['type'];

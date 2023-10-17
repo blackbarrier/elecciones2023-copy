@@ -365,9 +365,13 @@ return $e->getMessage();
             </h2>
                 <div id="collapseOne" class="accordion-collapse collapse    " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body" style="text-align: center">
-                    <h3 style="color: #009aae">Datos por Agrupacion</h3>
-
-                            <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
+                    
+                <div id="top_x_div" style="width: 90%; height: auto; margin:auto"></div> 
+                <br>
+                <br>
+                
+                <h3 style="color: #009aae">Datos por Agrupacion</h3>
+                            <table class=".table-striped" style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
                             <tr>   
                                 <td>&nbsp;</td>
                                 <td align="center"><b style="color:#009aae;">Nacionales</b></td>
@@ -408,7 +412,7 @@ return $e->getMessage();
                     <br>
                     <br> 
                     <br>
-                    <div id="top_x_div" style="width: 90%; height: 500px; margin:auto"></div> 
+                   
                 </div>
                 </div>
             </div>
@@ -423,8 +427,11 @@ return $e->getMessage();
                 <div id="collapseTwo" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body" style="text-align: center">
 
+                <div id="top_x_div2" style="width: 90%; height: 500px; margin:auto"></div> 
+                <br>
+                <br>
+                
                 <h3 style="color: #009aae">Datos por Agrupacion</h3>
-
                     <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
                     <tr>   
                         <td>&nbsp;</td>
@@ -468,7 +475,7 @@ return $e->getMessage();
                     <br>
                     <br>
                     <br>
-                    <div id="top_x_div2" style="width: 90%; height: 500px; margin:auto"></div> 
+                    
                     
                     
                 </div>
@@ -485,8 +492,11 @@ return $e->getMessage();
             </h2>
                 <div id="collapseThree" class="accordion-collapse collapse " aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body" style="text-align: center">                   
+                    <div id="top_x_div3" style="width: 90%; height: 500px; margin:auto"></div>
+                    <br>
+                <br> 
                     <h3 style="color: #009aae">Datos por Agrupacion</h3>
-                        <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
+                    <table style="width: 100%" bgcolor="#FFFFFF" border="3" bordercolor="#009aae" cellpadding="5" cellspacing="0">
                         <tr>   
                             <td>&nbsp;</td>
                             <td align="center"><b style="color:#009aae;">Nacionales</b></td>
@@ -529,7 +539,7 @@ return $e->getMessage();
                         <br>
                         <br>
                         <br>
-                        <div id="top_x_div3" style="width: 90%; height: 500px; margin:auto"></div> 
+                       
                 </div>
                 </div>
             </div>

@@ -6,11 +6,11 @@ $CLAVE="12345.a";
 $BASE="paso_2023";
 
 
-
 $SERVER2="test-cluster1.gob.gba.gob.ar";
 $USUARIO2="lbarrera";
 $CLAVE2="lb4rr3r4_PaS*";
 $BASE2="ResultadosPaso2021";
+
     
 
 
@@ -29,6 +29,7 @@ else
 	//echo "conecta";
 }
 
+
 $conexion2 = mysqli_connect($SERVER2,$USUARIO2,$CLAVE2,$BASE2);
 
 if (!$conexion2) {
@@ -41,4 +42,5 @@ else
 {
 	//echo "conecta";
 }
+
 ?>

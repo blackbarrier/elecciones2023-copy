@@ -82,7 +82,7 @@ $candidato_partido[4] = [
                 <div class="accordion-body" style="text-align: center">
                     <h3 style="color: #5e5b5b">Datos por Agrupacion</h3>
 
-                            <table class=".table-striped" style="width: 100%" bgcolor="#FFFFFF" border="2" bordercolor="3f3f3f" cellpadding="5" cellspacing="0">
+                            <table class=".table-striped" style="width: 100%" bgcolor="#FFFFFF" border="" bordercolor="3f3f3f" cellpadding="5" cellspacing="0">
                             <tr>   
                                 <td>&nbsp;</td>
                                 <td align="center"><b style="color:#5e5b5b;">Nacionales</b></td>
@@ -93,7 +93,7 @@ $candidato_partido[4] = [
 
                             <tr>
                                 <td><b style="color:#5e5b5b;" id="partido_candidato_1">&nbsp;<?php echo $candidato_partido[1]['AGRUPACION'];?></b></td>
-                                <td align="center"><?php echo number_format($candidato_partido[1]['NATIVOS'], 0, '.', '.'); ?></td>
+                                <td align="center"><b><?php echo number_format($candidato_partido[1]['NATIVOS'], 0, '.', '.'); ?></b></td>
                                 <td align="center"><?php echo number_format($candidato_partido[1]['EXTRANJEROS'], 0, '.', '.'); ?></td>
                                 <td align="center" id="vot_1_partido"><?php echo number_format($candidato_partido[1]['TOTAL'], 0, '.', '.'); ?></td>
                             

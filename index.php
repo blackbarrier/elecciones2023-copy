@@ -130,9 +130,9 @@
              */
             var municipios =<?php include("./lib/municipios_layer.php"); ?>;
             </script>
-    
+    <!--
     <script src="layers/consulta.js?v=<?php echo rand(0,10000) ?>"></script>
-    <script src="layers/secciones.js?v=<?php echo rand(0,10000) ?>"></script>
+    <script src="layers/secciones.js?v=<?php echo rand(0,10000) ?>"></script>-->
     
     <script src="js/mapa.js?v=<?php echo rand(0,10000) ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" 

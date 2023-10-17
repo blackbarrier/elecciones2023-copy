@@ -134,8 +134,13 @@ function cargarContenidoNew(feature) {
     let seccionElectoral = feature.properties.seccion;
     nombre = nombre.toUpperCase();    
 
-    let url = "/elecciones2023_copy/lib/tablaIndex.php";
-    //let url = "/test_pasos_2023/lib/tablaIndex.php";
+
+    //LOCAL
+    let url = "/elecciones2023/lib/tablaIndex.php";
+
+    //DESA
+    // let url = "/apps/elecciones2023/lib/tablaIndex.php";
+
     var data = { 
         seccion_id: seccionElectoral,
         nombreConsulta: nombre,
@@ -190,10 +195,9 @@ function accordionEvents (){
 }
 
 
-
 function cargarGrafico(id){ 
 
-    let Candidato1, Candidato2, Candidato3, Candidato4;
+    var Candidato1, Candidato2, Candidato3, Candidato4;
     let vot1, vot2, vot3, vot4;
 
     if(id=='top_x_div'){
@@ -237,32 +241,29 @@ function cargarGrafico(id){
       google.charts.setOnLoadCallback(drawStuff);
       function drawStuff() {
         var data = new google.visualization.arrayToDataTable([
-          ['Candidatos', 'Votos'],
-          [Candidato1, vot1],
-          [Candidato2, vot2],   
-          [Candidato3, vot3],
-          [Candidato4, vot4]
-        ]);
+        ['Candidatos', Candidato1, Candidato2, Candidato3, Candidato4],
+        [' ', vot1, vot2, vot3, vot4]
+]);
 
         data.sort({column: 1, desc: true});
-
+        
         var options = {
-          title: 'Candidatos',
+          title: 'Votos por candidato',
           width: '100%',
-          height: 350,
+          height: 300,
           legend: { position: 'none' },
-          colors: coloresPorAgrupacion([Candidato1,Candidato2,Candidato3,Candidato4]),
-          
+          colors: colorearBarras([Candidato1, Candidato2, Candidato3, Candidato4]),          
           bars: 'horizontal', // Required for Material Bar Charts.
+          
           axes: {
             x: {
-              0: { side: 'top', label: 'Cantidad de votos'} // Top x-axis.
+              0: { side: 'top', label: 'Cantidad de votos', fontSize: 18,} // Top x-axis.
             },
             y: {
-                0: { side: 'left', label: ''} // Top x-axis.
+                0: { side: 'left', label: 'Fuerza política'} // Top x-axis.
               }
           },
-          bar: { groupWidth: 20 }
+          bar: { groupWidth: 10 }
         };
 
         var chart = new google.charts.Bar(document.getElementById(id));
@@ -270,26 +271,33 @@ function cargarGrafico(id){
       };
 }
 
-function coloresPorAgrupacion(candidatos){
+function colorearBarras(candidatos){
+        var colores = [];
+        var color = '#009aae';      
+        for (var i = 0; i < 4; i++) {   
+            
+            if (candidatos[i].trim()==="JUNTOS POR EL CAMBIO"){
+                color="#f4f000";                
+            }
+            else if (candidatos[i].trim()==="UNION POR LA PATRIA"){
+                color="#43cff9";                
+            }
+            else if(candidatos[i].trim()==="LA LIBERTAD AVANZA"){
+                color="#8144af";
+            }
+            else if(candidatos[i].trim()==="FRENTE DE IZQUIERDA Y DE TRABAJADORES - UNIDAD"){
+                color="#dd2113";
+            }else{
+                color = '#009aae';   
+            }
+            colores.push(color);
+        }
 
-    var colores=[];
-    for (var i = 0; i < 4; i++) {
-        var color = '#009aae'; // Color predeterminado
-
-        if (candidatos[i] === 'La libertad avanza') {
-            color = 'violet';
-        } else if (candidatos[i] === 'Union por la patria') {
-            color = 'blue';
-        } else if (candidatos[i] === 'Juntos por el cambio') {
-            color = 'yellow';
-        } else if (candidatos[i] === 'Frente de izquierda') {
-            color = 'red';
-        colores.push(color);
-    }
-
+    
     return colores;
+
 }
-}
+
 
 
 function cargaMiniGrafico(id, vot1, vot2, vot3, vot4){
