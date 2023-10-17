@@ -251,7 +251,7 @@ function cargarGrafico(id){
           width: '100%',
           height: 350,
           legend: { position: 'none' },
-          colors: ['#009aae', '#009aae', '#009aae', '#009aae'],
+          colors: coloresPorAgrupacion([Candidato1,Candidato2,Candidato3,Candidato4]),
           
           bars: 'horizontal', // Required for Material Bar Charts.
           axes: {
@@ -268,6 +268,27 @@ function cargarGrafico(id){
         var chart = new google.charts.Bar(document.getElementById(id));
         chart.draw(data, options);
       };
+}
+
+function coloresPorAgrupacion(candidatos){
+
+    var colores=[];
+    for (var i = 0; i < 4; i++) {
+        var color = '#009aae'; // Color predeterminado
+
+        if (candidatos[i] === 'La libertad avanza') {
+            color = 'violet';
+        } else if (candidatos[i] === 'Union por la patria') {
+            color = 'blue';
+        } else if (candidatos[i] === 'Juntos por el cambio') {
+            color = 'yellow';
+        } else if (candidatos[i] === 'Frente de izquierda') {
+            color = 'red';
+        colores.push(color);
+    }
+
+    return colores;
+}
 }
 
 
